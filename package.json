@@ -17,13 +17,16 @@
     "express": "^4.17.2",
     "express-ejs-layouts": "^2.5.1",
     "mongoose": "^6.1.8",
-    "multer": "^1.4.4",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "dotenv": "^14.3.0"
   },
+  "files.associations": {
+    "*.ejs": "html"
+  },
   "emmet.includeLanguages": {
     "ejs": "html"
+  },
+  "html.format.templating": true
   }
-}
