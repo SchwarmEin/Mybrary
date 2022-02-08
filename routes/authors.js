@@ -3,7 +3,7 @@ const router = express.Router()
 const Author = require('../models/author')
 const Book = require('../models/book')
 
-//All authors route
+//search authors
 router.get('/', async (req, res)=>{
     let searchOptions = {}
     if (req.query.name != null && req.query.name !== ''){
@@ -20,12 +20,12 @@ router.get('/', async (req, res)=>{
     }
 })
 
-//new author route
+//show new author
 router.get('/new', (req, res)=>{
     res.render('authors/new', {author: new Author()})
 })
 
-//create author route
+//add new author
 router.post('/',async (req,res)=>{
     const author = new Author({
         name: req.body.name
@@ -41,6 +41,7 @@ router.post('/',async (req,res)=>{
     }
 })
 
+//show the view option with particular author
 router.get('/:id', async (req, res) => {
     try {
         const author = await Author.findById(req.params.id)
@@ -54,6 +55,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+//edit the particular author
 router.get('/:id/edit', async (req, res) => {
     try {
         const author = await Author.findById(req.params.id)
@@ -63,6 +65,7 @@ router.get('/:id/edit', async (req, res) => {
     }
 })
 
+//update the selected author
 router.put('/:id', async (req, res) => {
     let author
     try{
@@ -82,6 +85,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+//delete the selected author
 router.delete('/:id', async (req, res) => {
     let author
     try{
